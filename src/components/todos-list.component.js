@@ -4,10 +4,10 @@ import axios from "axios";
 
 const Todo = props => (
   <tr>
-    <td>{props.todo.todo_description}</td>
-    <td>{props.todo.todo_responsible}</td>
-    <td>{props.todo.todo_priority}</td>
-    <td>
+    <td className={props.todo.completed ? 'completed' : ''}>{props.todo.todo_description}</td>
+    <td className={props.todo.completed ? 'completed' : ''}>{props.todo.todo_responsible}</td>
+    <td className={props.todo.completed ? 'completed' : ''}>{props.todo.todo_priority}</td>
+    <td className={props.todo.completed ? 'completed' : ''}>
       <Link to={"/edit/"+props.todo._id}>Edit</Link>
     </td>
   </tr>
@@ -18,7 +18,6 @@ class TodosList extends Component {
 	constructor(props){
 		super(props);
 		this.state = { todos: [] };
-
 	}
 
 	componentDidMount(){
